@@ -1,0 +1,139 @@
+.our-mission, .our-story {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+}
+.our-story {
+    background-color: #ffffff;
+}
+.our-mission h2, .our-story h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #007bff;
+    text-decoration: underline;
+} 
+.our-mission p, .our-story p {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+    color: #555;
+} 
+/*Founders Section*/
+.founders {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+}
+.founders h2 {
+    font-size: 2rem;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+.founders p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 30px;
+}
+.founders-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+.founder-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 250px;
+    transition: 0.3s ease;
+}
+.founder-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    transition: 0.3s ease;
+}
+.founder-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+.founder-card:hover .founder-image {
+    transform: scale(1.1);
+}
+/*services section*/
+.how-we-help {
+    text-align: center;
+    padding: 60px 20px;
+    height: 110vh;
+}
+.how-we-help h2 {
+    font-size: 2rem;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+.how-we-help h3 {
+    font-size: 1.1rem;
+    font-weight: 800;
+}
+.how-we-help p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 30px;
+}
+.help-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+.help-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 250px;
+    transition: 0.3s ease;
+}
+.help-card img {
+    width: 16vw;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+.help-card:hover {
+    transform: translateY(-5px);
+}
+/*Join Us Section*/
+.join-us {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: white;
+    color: black;
+}
+.join-us h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+.join-us p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+.join-btn {
+    color: white;
+    background-color: #007bff;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.join-btn:hover {
+    background-color: #0056b3;
+    color: #fff;
+}

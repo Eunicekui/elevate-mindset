@@ -1,0 +1,167 @@
+.hero {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../assets/10.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+.text-hero {
+  position: absolute;
+  top: 45%;
+  left: 27%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  height: 45vh;
+  text-align: left;
+}
+.text-hero h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  background-color: #fff;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.text-hero h2 {
+  color: white;
+  font-size: 1.4rem;
+}
+.text-hero p {
+  font-size: 18px;
+  color: #fff;
+  padding: 0.5rem 0.2rem 0;
+  height: 23vh;
+  line-height: 30px;
+}
+.text-hero .show {
+  text-decoration: none;
+  background-color: #fff;
+  padding: 1rem 2rem;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #222;
+}
+.text-hero .show:hover {
+  background-color: #01959a;
+  color: #fff;
+  border-radius: 4px;
+  transition: all 0.2s ease-in-out;
+}
+.text-hero .hide {
+  display: none;
+}
+.hero-card {
+  position: absolute;
+  top: 75%;
+}
+.hero-card {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+.hero-card .chat h2 {
+  color: grey;
+}
+.hero-card .therapy h2 {
+  color: grey;
+}
+/*Therapy Hero*/
+.hero-mid {
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../assets/4.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  height: 90vh;
+  width: 100vw;
+  position: relative;
+}
+.hero-mid .text-hero {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 45%;
+  height: 45vh;
+  text-align: center;
+
+}
+.hero-mid .text-hero p {
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 20px;
+
+}
+.hero-mid .text-hero h1 {
+  font-size: 1.7rem;
+}
+/*about hero*/
+.about-hero {
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../assets/1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  height: 90vh;
+  width: 100vw;
+}
+.about-hero .text-hero {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  margin-left: 350px;
+  padding-top: 100px;
+  align-items: center;
+}
+.about-hero .text-hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+.about-hero .text-hero p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto 20px;
+  opacity: 0.9;
+}
+.cta-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 12px 24px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  text-decoration: none;
+}
+.cta-button:hover {
+  background-color: #0056b3;
+}
+@media screen and (max-width: 555px) {
+  .hero-text h1 {
+    padding: 10px 20px;
+  }
+  .hero-text p {
+    font-size: 1.1rem;
+    padding: 0 0 2rem 0;
+  }
+  .hero-text .show {
+    padding: 0.6rem 1.1rem;
+    border-radius: 6px;
+    font-size: 1rem;
+  }
+}
