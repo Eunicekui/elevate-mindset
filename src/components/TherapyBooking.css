@@ -1,0 +1,68 @@
+/* Main container styling */
+.booking-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 150px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Heading styles */
+.booking-container h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Form styling */
+.booking-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Input and select fields */
+.booking-container input, 
+.booking-container select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    transition: border 0.3s ease;
+}
+
+.booking-container input:focus, 
+.booking-container select:focus {
+    border-color: #28a745;
+}
+
+/* Submit button */
+.booking-container button {
+    width: 100%;
+    background: #28a745;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 10px;
+}
+
+.booking-container button:hover {
+    background: #218838;
+}
+
+/* Responsive design */
+@media (max-width: 500px) {
+    .booking-container {
+        width: 90%;
+    }
+}

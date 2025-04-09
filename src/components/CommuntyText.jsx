@@ -1,5 +1,7 @@
 import "./CommunityText.css";
 import Stories from "./Stories.jsx";
+import { Link } from "react-router-dom";
+
 
 const CommunityText = () => {
 
@@ -46,7 +48,9 @@ const CommunityText = () => {
       <section className="discussion">
         <h2>Join Our Discussion Forum</h2>
         <p>Engage in meaningful conversations with others who understand your journey.</p>
-        <button className="btn">Coming soon: Live Forum Chat</button>
+        <Link to="/chatbox">
+         <button className="btn">Coming soon: Live Forum Chat</button>
+        </Link>
       </section>
       <section className="events">
         <h2>Upcoming Events & Workshops</h2>
@@ -56,7 +60,9 @@ const CommunityText = () => {
             <li key={index}>
               <div className="event-info">
                 <span>{event.title} - {event.date}</span>
-                <button className="btn-small">Register Now</button>
+                <Link to="/eventregistration">
+                    <button className="btn-small">Register Now</button>
+                </Link>
               </div>
             </li>
           ))}

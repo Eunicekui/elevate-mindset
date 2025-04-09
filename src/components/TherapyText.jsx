@@ -1,8 +1,10 @@
 import "./TherapyText.css";
+import { Link } from "react-router-dom";
 
-function TherapyText () {
-    return (
-        <>
+
+function TherapyText() {
+  return (
+    <>
       <section className="why-choose-us">
         <h2>Why Choose Our Therapy</h2>
         <ul>
@@ -14,10 +16,15 @@ function TherapyText () {
       </section>
       <section className="cta">
         <h2>Book a Free Consultation</h2>
-        <p>Take the first step towards better mental health. Book a session Tpday!</p>
-        <button className="btn">Get Started</button>
+        <p>
+          Take the first step towards better mental health. Book a session
+          Today!
+        </p>
+        <Link to="/therapybooking">
+          <button className="cta-button">Get Started</button>
+        </Link>
       </section>
-      </>
-    );
+    </>
+  );
 }
 export default TherapyText;

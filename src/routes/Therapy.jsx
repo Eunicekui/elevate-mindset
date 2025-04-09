@@ -6,6 +6,7 @@ import TherapySteps from "../components/TherapySteps.jsx";
 import Footer from "../components/Footer.jsx";
 import TherapyText from "../components/TherapyText.jsx";
 
+
 function Therapy() {
   return (
     <>
@@ -16,7 +17,7 @@ function Therapy() {
         text="Therapy is not just for people in crisis, anyone can benefit from therapy, even if they don't have a
         diagnozied mental health condition"
         buttonText="Book a Session"
-        url="/"
+        url="/therapybooking"
         btnClass="cta-button"
       />
       <TherapyType />

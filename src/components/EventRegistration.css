@@ -1,0 +1,56 @@
+.event-container {
+    width: 100vw;
+    height: 100vh;
+    margin: 100px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.event-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.event-container .event-list {
+    list-style-type: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    width: 100%;
+}
+
+.event-container .event-card {
+    background: #f4f4f4;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    height: 50vh;
+    width: 90%;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.event-container .event-card h3 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.event-container .event-card p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.event-container button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 15vw;
+}
+
+.event-container button:hover {
+    background-color: #0056b3;
+}

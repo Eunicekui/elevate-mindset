@@ -19,6 +19,13 @@
   font-size: 2rem;
   cursor: pointer;
 }
+.navbar-logo img {
+  margin-top: 10px;
+  margin-left: -30px;
+  width: 7vw;
+  height: 12vh;
+  border-radius: 50%;
+}
 .nav-menu {
   display: grid;
   grid-template-columns: repeat(8, auto);
@@ -36,13 +43,22 @@
   padding: 0.7rem 1rem;
 }
 .nav-links:hover {
-  background-color: #01959a;
+  background-color: #0094FF;
   color: #fff;
-  border-radius: 4px;
+  border-radius: 10px;
   transition: all 0.2s ease-in-out;
 }
 .nav-links-mobile {
-  display: none;
+  background-color: #0094FF;
+  text-decoration: none;
+  color: #222;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 0.7rem 1rem;
+  border-radius: 10px;
+}
+.nav-links-mobile:hover {
+  background-color: #01959A;
 }
 button {
   padding: 0.5rem 1rem;
@@ -61,6 +77,37 @@ button:hover {
 .menu-icons {
     display: none;
 }
+.user-dropdown {
+  position: relative;
+  cursor: pointer;
+  background-color: #0094FF;
+  border-radius: 20px; 
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #007BFF;
+  color:black;
+  border-radius: 6px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  padding: 10px 0;
+  min-width: 120px;
+  z-index: 999;
+}
+
+.dropdown-menu li {
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.dropdown-menu:hover {
+  background-color: #01959A;
+}
+
 @media screen and (max-width: 850px) {
     .NavbarItems {
         z-index: 99;

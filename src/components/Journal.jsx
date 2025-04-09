@@ -1,94 +1,126 @@
-import "./Journal.css";
-import { useState, useEffect } from "react";
-
-const moods = ["Happy", "Sad", "Anxious", "Calm", "Motivated", "Tired"];
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import "./journal.css";
+import NavBar from "../components/NavBar.jsx";
+import Footer from "../components/Footer.jsx";
 
 const Journal = () => {
-  const [entries, setEntries] = useState([]);
-  const [currentEntry, setCurrentEntry] = useState("");
-  const [selectedMood, setSelectedMood] = useState("");
+  const [journals, setJournals] = useState([]);
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+  const [editId, setEditId] = useState(null);
+  const token = localStorage.getItem("accessToken"); 
+
+  const fetchJournals = async () => {
+    try {
+      const res = await axios.get("http://localhost:8000/api/journals/", {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      setJournals(res.data);
+    } catch (error) {
+      console.error("Error fetching journals:", error);
+      if (error.response?.status === 401) {
+        window.location.href = "/login";
+      }
+    }
+  };
 
   useEffect(() => {
-    const savedEntires =
-      JSON.parse(localStorage.getItem("journalEntries")) || [];
-    setEntries(savedEntires);
+    if (!token) {
+      window.location.href = "/login";
+    } else {
+      fetchJournals();
+    }
   }, []);
 
-  const saveEntry = () => {
-    if (currentEntry.trim() === "" || selectedMood === "") {
-      alert("Please write something and select your mood.");
-      return;
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      if (editId) {
+        await axios.put(
+          `http://localhost:8000/api/journals/${editId}/`,
+          { title, content },
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        );
+        setEditId(null);
+      } else {
+        await axios.post(
+          "http://localhost:8000/api/journals/",
+          { title, content },
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        );
+      }
+      setTitle("");
+      setContent("");
+      fetchJournals();
+    } catch (error) {
+      console.error("Error submitting journal:", error);
     }
-
-    const newEntry = {
-      id: Date.now(),
-      date: new Date().toLocaleDateString(),
-      text: currentEntry,
-      mood: selectedMood,
-    };
-    const updatedEntries = [newEntry, ...entries];
-    setEntries(updatedEntries);
-
-    localStorage.setItem("journalEntries", JSON.stringify(updatedEntries));
-    setCurrentEntry(""); //clear textarea
-    setSelectedMood(""); //reset mood
   };
-  const deleteEntry = (id) => {
-    const updatedEntries = entries.filter((entry) => entry.id !== id);
-    setEntries(updatedEntries);
-    localStorage.setItem("journalEntries", JSON.stringify(updatedEntries));
+
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete(`http://localhost:8000/api/journals/${id}/`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      fetchJournals();
+    } catch (error) {
+      console.error("Error deleting journal:", error);
+    }
+  };
+
+  const handleEdit = (journal) => {
+    setEditId(journal.id);
+    setTitle(journal.title);
+    setContent(journal.content);
   };
 
   return (
-    <section className="journal-section">
-      <h2>My Personal Journal</h2>
-      <p>
-        Writing down your thoughts and feelings can help you reflect, release
-        stress, and track your emotional journey.
-      </p>
-      <div className="journal-entry-form">
-        <textarea
-          placeholder="Write your thoughts here..."
-          value={currentEntry}
-          onChange={(e) => setCurrentEntry(e.target.value)}
-        ></textarea>
-        <div className="mood-selector">
-          <p>Select Your Mood:</p>
-          <div className="mood-options">
-            {moods.map((mood) => (
-              <button
-                key={mood}
-                className={mood === selectedMood ? "selected" : ""}
-                onClick={() => setSelectedMood(mood)}
-              >
-                {mood}
-              </button>
-            ))}
-          </div>
-        </div>
-        <button onClick={saveEntry}>Save Entry</button>
-      </div>
-      <div className="journal-entries">
-        {entries.length === 0 ? (
-          <p className="no-entries">
-            No entries yet. Start writing your journal entry!.
-          </p>
-        ) : (
-          entries.map((entry) => (
-            <div key={entry.id} className="jounal-entry">
-              <div className="entry-header">
-                <span>{entry.date}</span>
-                <span className={`mood-tag mood-${entry.mood.toLowerCase()}`}>
-                  {entry.mood}
-                </span>
-                <button onClick={() => deleteEntry(entry.id)}>Delete</button>
+    <>
+      <NavBar />
+      <div className="journal-container">
+        <h2>{editId ? "Edit Journal" : "New Journal Entry"}</h2>
+        <form onSubmit={handleSubmit} className="journal-form">
+          <input
+            type="text"
+            placeholder="Title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            required
+          />
+          <textarea
+            placeholder="Content"
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+            required
+          />
+          <button type="submit">{editId ? "Update" : "Add"}</button>
+        </form>
+
+        <div className="journal-entries">
+          {Array.isArray(journals) &&
+            journals.map((journal) => (
+              <div key={journal.id} className="journal-entry">
+                <h3>{journal.title}</h3>
+                <p>{journal.content}</p>
+                <span>{new Date(journal.created_at).toLocaleString()}</span>
+                <div className="actions">
+                  <button onClick={() => handleEdit(journal)}>Edit</button>
+                  <button onClick={() => handleDelete(journal.id)}>
+                    Delete
+                  </button>
+                </div>
               </div>
-              <p>{entry.text}</p>
-            </div>
-          ))
-        )}
+            ))}
+        </div>
       </div>
-    </section>
+      <Footer />
+    </>
   );
 };
+
 export default Journal;
