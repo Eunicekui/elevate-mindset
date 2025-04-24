@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'users',
     'chat',
     'channels',
+    'chatbot',
 ]
 
 
@@ -56,9 +57,7 @@ ASGI_APPLICATION = 'backend.asgi.application'
 CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_layers.InMemoryChannelLayer',
-       # 'CONFIG': {
-        #    'hosts': [('127.0.0.1', 6379)],
-       # },
+       
     },
 }
 

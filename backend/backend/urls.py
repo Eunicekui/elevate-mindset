@@ -20,5 +20,8 @@ urlpatterns = [
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),  # Token refresh
     path('api/', include('chat.urls')),
     path('api/auth/', include('users.urls')),
+   # path('api/chatbot/', include('chatbot.urls')),
+    path('api/', include('chatbot.urls')),
+   # path('api/auth/', include('rest_framework_simplejwt.urls')),
 
 ]
